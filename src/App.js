@@ -6,6 +6,7 @@ import Rates from "./components/Rates/Rates";
 import MyOrders from "./components/MyOrders/MyOrders";
 import Payments from "./components/Payments/Payments";
 import Accounts from "./components/Accounts/Accounts";
+import WishLists from "./components/WishLists/WishLists";
 function App() {
     return (
         <>
@@ -29,6 +30,9 @@ function App() {
             </div>
             <div>
                 <Payments/>
+            </div>
+            <div>
+                <WishLists/>
             </div>
         </>
     );
