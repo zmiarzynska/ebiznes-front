@@ -1,12 +1,19 @@
-import React from 'react';
+import React,{ useContext } from 'react';
 import { Typography, IconButton} from '@material-ui/core';
 import {AddShoppingCart} from '@material-ui/icons';
+import { useDispatchCart} from "../../Carts/Cart/Cart";
+
 
 import useStyles from './styles';
 import "./Product.css"
 
 const Item = ({item}) => {
+    const dispatch = useDispatchCart();
     const classes = useStyles();
+    const addToCart = item => {
+        console.log(item);
+        dispatch({type:"ADD", item});
+    }
     return (
         <div className="product-container">
             <div className="image-container">
@@ -22,7 +29,10 @@ const Item = ({item}) => {
                     {item.price}
                     <p></p>
                 </div>
-                <IconButton aria-label="Add to Cart">
+                <IconButton aria-label="Add to Cart"
+                            onClick={() => {
+                                addToCart(item);
+                            }}>
                     <AddShoppingCart/>
                 </IconButton>
             </div>

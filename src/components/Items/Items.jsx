@@ -7,26 +7,24 @@ import Item from './Item/Item'
 
 const Items = () => {
     const url = 'http://localhost:9000/items';
-    const [items, setItem] = useState(null)
-
+    const [items, setItem] = useState([])
 
     useEffect(() => {
+        let isMounted = true;
         axios.get(url).then(response => {
-            setItem(response.data)
+            if (isMounted) setItem(response.data);
         })
-    }, [url])
+        return () => { isMounted = false };
+    }, [])
 
     if(items){
         return (
             <main>
                 <h1>Products</h1>
-                <Grid container justify="center" spacing={10}>
                     {items.map((item) => (
-                        <Grid item key={item.id} xs={12} sm={6} md={4} lg={3}>
                             <Item item={item}/>
-                        </Grid>
+
                     ))}
-                </Grid>
             </main>
         );
     }
