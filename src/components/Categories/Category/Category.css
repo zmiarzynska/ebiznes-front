@@ -1,7 +1,6 @@
 .container {
     display: flex;
     justify-content: center;
-    display: grid;
     justify-content: space-evenly;
 
 }
