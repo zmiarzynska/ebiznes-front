@@ -1,11 +1,11 @@
 import React from 'react';
 import { Typography, IconButton} from '@material-ui/core';
 import {ArrowDownward} from '@material-ui/icons';
-
+import {useCart} from "../../Carts/Cart/Cart";
 import "./Category.css"
 
 const Category = ({category}) => {
-
+const items = useCart();
     return (
         <div className="container">
             <div className="image-container">
@@ -21,6 +21,8 @@ const Category = ({category}) => {
                     <p></p>
                 </div>
                 <IconButton aria-label="Move to Category">
+
+                    Cart ({items.length}
                     Move to Category <ArrowDownward/>
                 </IconButton>
             </div>
