@@ -1,7 +1,9 @@
 import React from "react";
 import { useCart, useDispatchCart } from "../components/Carts/Cart/Cart";
-
+import formatCurrency from "format-currency";
 const CartItem = ({ product, index, handleRemove }) => {
+    let opts = { format: "%s%v", symbol: "PLN" };
+
     return (
         <article>
             <div >
@@ -22,6 +24,14 @@ const CartItem = ({ product, index, handleRemove }) => {
                     <button onClick={() => handleRemove(index)}>Remove from cart</button>
                 </div>
             </div>
+        {/*    ładniejszy obiekt w sklepie  */}
+            <li className='CartItem__item'>
+                <img src={product.image} alt='' />
+                <div>
+                    {product.name} {formatCurrency(`${product.price}`, opts)}
+                </div>
+
+            </li>
         </article>
     );
 };

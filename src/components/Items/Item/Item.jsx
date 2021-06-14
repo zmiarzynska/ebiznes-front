@@ -4,12 +4,10 @@ import {AddShoppingCart} from '@material-ui/icons';
 import { useDispatchCart} from "../../Carts/Cart/Cart";
 
 
-import useStyles from './styles';
 import "./Product.css"
 
 const Item = ({item}) => {
     const dispatch = useDispatchCart();
-    const classes = useStyles();
     const addToCart = item => {
         console.log(item);
         dispatch({type:"ADD", item});

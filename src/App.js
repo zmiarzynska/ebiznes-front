@@ -20,20 +20,24 @@ function App() {
         <Router>
         <>
             <Header />
+            <div className="container">
+
             <Switch>
                 <Route path="/cart">
                     {/*<Cart />*/}
                     <div className="products">
+                        <div className="cart-container">
                         <Cart />
+                        </div>
                     </div>
                 </Route>
                 <Route path="/" >
-                    <div className="products">
+                    {/*<div className="products">*/}
                         <Items/>
-                    </div>
+                    {/*</div>*/}
                 </Route>
             </Switch>
-
+            </div>
         </>
         </Router>
     );
