@@ -1,7 +1,7 @@
 import './App.css';
 import Items from "./components/Items/Items";
 
-import Cart from "./pages/Cart"
+import Cart from "./pages/Store"
 import React from "react";
 import Header from "./components/Header";
 
