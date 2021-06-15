@@ -2,6 +2,8 @@ This is exercise from Ebiznes course - Sonar - both for frontend and backend for
 
 Sonar for projects available at: https://sonarcloud.io/organizations/zmiarzynska/projects
 
+![alt text](./"Sonar dashboard.png")
+
 For frontend:
 
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=zmiarzynska_ebiznes-front&metric=bugs)](https://sonarcloud.io/dashboard?id=zmiarzynska_ebiznes-front)
