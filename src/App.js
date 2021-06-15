@@ -5,7 +5,7 @@ import Carts from "./components/Carts/Carts";
 import Cart from "./pages/Cart"
 import React from "react";
 import Header from "./components/Header";
-import Store from "./pages/Store";
+
 
 import Rates from "./components/Rates/Rates";
 import MyOrders from "./components/MyOrders/MyOrders";
