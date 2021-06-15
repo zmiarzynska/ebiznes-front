@@ -2,7 +2,7 @@ This is exercise from Ebiznes course - Sonar - both for frontend and backend for
 
 Sonar for projects available at: https://sonarcloud.io/organizations/zmiarzynska/projects
 
-![alt text](./"Sonar dashboard.png")
+![alt text](./Sonar dashboard.png)
 
 For frontend:
 
