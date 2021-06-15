@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, IconButton} from '@material-ui/core';
+import { IconButton} from '@material-ui/core';
 import {ArrowDownward} from '@material-ui/icons';
 import {useCart} from "../../Carts/Cart/Cart";
 import "./Category.css"

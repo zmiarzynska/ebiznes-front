@@ -1,5 +1,5 @@
-import React,{ useContext } from 'react';
-import { Typography, IconButton} from '@material-ui/core';
+import React from 'react';
+import { IconButton} from '@material-ui/core';
 import {AddShoppingCart} from '@material-ui/icons';
 import { useDispatchCart} from "../../Carts/Cart/Cart";
 
@@ -8,9 +8,9 @@ import "./Product.css"
 
 const Item = ({item}) => {
     const dispatch = useDispatchCart();
-    const addToCart = item => {
-        console.log(item);
-        dispatch({type:"ADD", item});
+    const addToCart = _item => {
+        console.log(_item);
+        dispatch({type:"ADD", _item});
     }
     return (
         <div className="product-container">

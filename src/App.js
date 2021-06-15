@@ -1,17 +1,10 @@
 import './App.css';
 import Items from "./components/Items/Items";
-import Categories from "./components/Categories/Categories";
-import Carts from "./components/Carts/Carts";
+
 import Cart from "./pages/Cart"
 import React from "react";
 import Header from "./components/Header";
 
-
-import Rates from "./components/Rates/Rates";
-import MyOrders from "./components/MyOrders/MyOrders";
-import Payments from "./components/Payments/Payments";
-import Accounts from "./components/Accounts/Accounts";
-import WishLists from "./components/WishLists/WishLists";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 
@@ -24,7 +17,7 @@ function App() {
 
             <Switch>
                 <Route path="/cart">
-                    {/*<Cart />*/}
+
                     <div className="products">
                         <div className="cart-container">
                         <Cart />
@@ -32,9 +25,9 @@ function App() {
                     </div>
                 </Route>
                 <Route path="/" >
-                    {/*<div className="products">*/}
+
                         <Items/>
-                    {/*</div>*/}
+
                 </Route>
             </Switch>
             </div>
