@@ -8,9 +8,9 @@ import "./Product.css"
 
 const Item = ({item}) => {
     const dispatch = useDispatchCart();
-    const addToCart = _item => {
-        console.log(_item);
-        dispatch({type:"ADD", _item});
+    const addToCart = item => {
+        console.log(item);
+        dispatch({type:"ADD", item});
     }
     return (
         <div className="product-container">
