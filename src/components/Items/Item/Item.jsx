@@ -9,9 +9,10 @@ import "./Product.css"
 const Item = ({item}) => {
     const dispatch = useDispatchCart();
     const addToCart = item => {
-        console.log(item);
         dispatch({type:"ADD", item});
     }
+    console.log("1");
+
     return (
         <div className="product-container">
             <div className="image-container">
@@ -24,6 +25,8 @@ const Item = ({item}) => {
                 </div>
                 <div className="product-body">
                     {item.description}
+                    <br/>
+
                     {item.price}
                     <p></p>
                 </div>

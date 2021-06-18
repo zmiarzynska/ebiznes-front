@@ -1,6 +1,7 @@
 import React, {useReducer, useContext, createContext } from 'react';
 import "./Cart.css"
 
+
 const CartStateContext = createContext()
 const CartDispatchContext = createContext()
 
@@ -8,12 +9,35 @@ const reducer = (state,action) => {
     switch(action.type){
         case "ADD":
 
-            return [...state,action.item];
+            const array = [...state];
+            const arrWithId = array.find(item => item.id === action.item.id)
+
+            if(arrWithId !== undefined){
+                action.item.quantity += 1;
+                return array
+            }
+            else {
+                action.item.quantity = 1;
+                return [...state,action.item];
+            }
+
         case "REMOVE":
             const newArr = [...state];
             newArr.splice(action.index, 1);
             return newArr;
+        case "INCREASE":
 
+
+            const all_items = [...state];
+            const temp = all_items.find(product => product.id === action.product.id)
+            //temp.quantity =temp.quantity + 1;
+            if(temp.quantity == 1){
+                temp.quantity += 1;
+            }
+            else {temp.quantity+= 0.5;}
+            console.log(action.product.quantity);
+            all_items.splice(all_items.indexOf(action.product.id ),1,temp);
+            return all_items;
         default:
             throw new Error(`unknown action ${action.type}`)
     }

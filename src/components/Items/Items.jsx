@@ -20,8 +20,8 @@ const Items = () => {
         return (
             <main>
                 <h1>Products</h1>
-                    {items.map((item) => (
-                            <Item item={item}/>
+                    {items.map((_item) => (
+                            <Item item={_item}/>
 
                     ))}
             </main>
