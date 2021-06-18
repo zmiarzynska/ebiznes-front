@@ -11,15 +11,20 @@ const reducer = (state,action) => {
 
             const array = [...state];
             const arrWithId = array.find(item => item.id === action.item.id)
-
             if(arrWithId !== undefined){
+                return array
+            }
+            action.item.quantity = 1;
+            console.log(action.item);
+            return [...state,action.item];
+          /*  if(arrWithId !== undefined){
                 action.item.quantity += 1;
                 return array
             }
             else {
                 action.item.quantity = 1;
                 return [...state,action.item];
-            }
+            } */
 
         case "REMOVE":
             const newArr = [...state];
@@ -35,7 +40,7 @@ const reducer = (state,action) => {
                 temp.quantity += 1;
             }
             else {temp.quantity+= 0.5;}
-            console.log(action.product.quantity);
+
             all_items.splice(all_items.indexOf(action.product.id ),1,temp);
             return all_items;
         default:

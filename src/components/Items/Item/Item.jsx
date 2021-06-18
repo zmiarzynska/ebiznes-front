@@ -1,17 +1,13 @@
 import React from 'react';
 import { IconButton} from '@material-ui/core';
 import {AddShoppingCart} from '@material-ui/icons';
-import { useDispatchCart} from "../../Carts/Cart/Cart";
-
+import {addToCart} from "../../../redux/Shopping/shopping-actions"
 
 import "./Product.css"
+import {useDispatch} from "react-redux";
 
 const Item = ({item}) => {
-    const dispatch = useDispatchCart();
-    const addToCart = item => {
-        dispatch({type:"ADD", item});
-    }
-    console.log("1");
+    const dispatch = useDispatch();
 
     return (
         <div className="product-container">
@@ -26,13 +22,12 @@ const Item = ({item}) => {
                 <div className="product-body">
                     {item.description}
                     <br/>
-
                     {item.price}
                     <p></p>
                 </div>
                 <IconButton aria-label="Add to Cart"
                             onClick={() => {
-                                addToCart(item);
+                                dispatch(addToCart(item))
                             }}>
                     <AddShoppingCart/>
                 </IconButton>

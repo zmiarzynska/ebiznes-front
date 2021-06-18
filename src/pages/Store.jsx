@@ -1,7 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useCart, useDispatchCart } from "../components/Carts/Cart/Cart";
 import formatCurrency from "format-currency";
+import { useDispatch, useSelector } from "react-redux";
+import {loadCart, quantityIncrease} from "../redux/Shopping/shopping-actions";
 const CartItem = ({ product, index, handleRemove , handleIncrease}) => {
+    const dispatch = useDispatch()
+
     let opts = { format: "%s%v", symbol: "PLN" };
 
     return (
@@ -23,7 +27,8 @@ const CartItem = ({ product, index, handleRemove , handleIncrease}) => {
                         <p>Quantity: {product.quantity}</p>
                     </dl>
                     <button onClick={() => handleRemove(index)}>Remove from cart</button>
-                    <button onClick={() => handleIncrease(product,index)}>+</button>
+                    <button onClick={() => dispatch(quantityIncrease(product.id))}>+</button>
+                    <button >-</button>
                 </div>
             </div>
         {/*    ładniejszy obiekt w sklepie  */}
@@ -39,37 +44,25 @@ const CartItem = ({ product, index, handleRemove , handleIncrease}) => {
 };
 
 export default function Store() {
-    const items = useCart();
-    console.log(items);
-    const dispatch = useDispatchCart();
-    const totalPrice = items.reduce((total, b) => total + b.price, 0);
-    const handleRemove = (index) => {
-        dispatch({ type: "REMOVE", index });
-    };
+    const shop = useSelector((state) => state);
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        dispatch(loadCart())
+    },[])
 
-    const handleIncrease = (product,index) => {
-        dispatch({ type: "INCREASE", product,index });
-    };
-    if (items.length === 0) {
-        return (
-            <main>
-                <p>Cart is empty</p>
-            </main>
-        );
-    }
+
+
     return (
         <main>
             <p>
                 Total price:{" "}
-                {totalPrice.toLocaleString("en", {
+                {shop.shop.totalPrice.toLocaleString("en", {
                     style: "currency",
                     currency: "USD"
                 })}
             </p>
-            {items.map((item, index) => (
+            {shop.shop.cart.map((item, index) => (
                 <CartItem
-                    handleRemove={handleRemove}
-                    handleIncrease={handleIncrease}
                     key={index}
                     product={item}
                     index={index}
