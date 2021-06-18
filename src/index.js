@@ -2,15 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { Provider } from "react-redux";
 import 'bootstrap/dist/css/bootstrap.css';
 import {CartProvider} from "./components/Carts/Cart/Cart";
+import store from "./redux/store";
+
 const rootElement = document.getElementById("root");
 
 ReactDOM.render(
     <React.StrictMode>
-        <CartProvider>
-            <App />
-        </CartProvider>
+        <Provider store={store}>
+            <CartProvider>
+                <App />
+            </CartProvider>
+        </Provider>
     </React.StrictMode>,
     rootElement
 );

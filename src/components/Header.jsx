@@ -5,10 +5,11 @@ import {
     GithubLoginButton, GoogleLoginButton
 } from "react-social-login-buttons"
 import Cookies from 'js-cookie';
+import {useSelector} from "react-redux";
 
 const Header = () => {
     const items = useCart();
-
+    const shop = useSelector((state) => state);
     useEffect( () =>
     {
         const user = Cookies.get('user')
@@ -31,7 +32,7 @@ const Header = () => {
                 <h1></h1>
 
                 <Link  className="text-light" to="/cart" style={{ textDecoration: 'none' }} >
-                    <b> Cart -  {items.length} items</b>
+                    <b> Cart -  {shop.shop.cart.length} items</b>
                 </Link>
             </nav>
 
