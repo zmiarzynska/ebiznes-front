@@ -1,0 +1,10 @@
+.image-container img {
+    overflow: hidden;
+    max-width: 200px;
+    max-height: 200px;
+    margin: auto;
+}
+
+.products-container {
+    display: flex;
+}

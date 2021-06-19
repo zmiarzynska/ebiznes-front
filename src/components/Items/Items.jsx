@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-
+import {Grid} from '@material-ui/core';
 import Item from './Item/Item'
 
 
@@ -19,11 +19,16 @@ const Items = () => {
     if(items){
         return (
             <main>
+
                 <h1>Products</h1>
+                <Grid container justify="center" spacing={10}>
                     {items.map((_item) => (
+                        <Grid item key={_item.id} xs={14} >
                             <Item item={_item}/>
+                        </Grid>
 
                     ))}
+                </Grid>
             </main>
         );
     }

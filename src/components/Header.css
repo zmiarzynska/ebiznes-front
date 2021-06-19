@@ -1,0 +1,12 @@
+.box {
+    display: flex;
+    flex-wrap: wrap;
+}
+/*.box>* {*/
+/*    flex: 1 1 160px;*/
+/*}*/
+
+
+.signButton {
+ width : 10px;
+}

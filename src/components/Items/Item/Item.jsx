@@ -13,18 +13,18 @@ const Item = ({item}) => {
         <div className="product-container">
             <div className="image-container">
 
-                <img src='https://beataejzenheart.files.wordpress.com/2020/10/1d28dc9c-a8ed-4bef-9364-2bb1c3654720.jpeg?w=560' alt=""/>
+                <img src={item.image} alt=""/>
             </div>
             <div>
                 <div className="product-title">
                     <h3> {item.name}</h3>
                 </div>
                 <div className="product-body">
-                    {item.description}
-                    <br/>
+
                     {item.price} PLN
-                    <p></p>
+
                 </div>
+                Dodaj do koszyka
                 <IconButton aria-label="Add to Cart"
                             onClick={() => {
                                 dispatch(addToCart(item))
