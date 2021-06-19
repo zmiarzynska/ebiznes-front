@@ -22,6 +22,24 @@ const shopReducer = (state = INITIAL_STATE, action={}) => {
             }
 
         case actionTypes.ADD_TO_CART:
+            const array =state.cart;
+            const arrWithId = array.find(item => item.id === action.payload.id)
+            if(arrWithId !== undefined){
+
+                let quantityUpSum = 0;
+                state.cart.forEach(
+                    (product) =>
+                        (quantityUpSum += product.price * product.quantity)
+                );
+
+                return {
+                    ...state,
+                    loading: false,
+                    cart: state.cart,
+                    totalPrice: quantityUpSum
+                }
+            }
+
             const newItem = { ...action.payload,
                 ["quantity"]: 1}
             state.cart.push(newItem)
@@ -58,7 +76,20 @@ const shopReducer = (state = INITIAL_STATE, action={}) => {
                 cart: state.cart,
                 totalPrice: quantityUpSum3
             }
-
+        case actionTypes.QUANTITY_DECREASE:
+            const item2 = state.cart.filter(x=> x.id === action.payload)
+            item2[0].quantity -=1
+            let quantityUpSubtract = 0;
+            state.cart.forEach(
+                (product) =>
+                    (quantityUpSubtract += product.price * product.quantity)
+            );
+            return {
+                ...state,
+                loading: false,
+                cart: state.cart,
+                totalPrice: quantityUpSubtract
+            }
         default:
             return state
     }

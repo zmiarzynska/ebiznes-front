@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import { useCart, useDispatchCart } from "../components/Carts/Cart/Cart";
 import formatCurrency from "format-currency";
 import { useDispatch, useSelector } from "react-redux";
-import {loadCart, quantityIncrease} from "../redux/Shopping/shopping-actions";
+import {loadCart, quantityIncrease, quantityDecrease} from "../redux/Shopping/shopping-actions";
 const CartItem = ({ product, index, handleRemove , handleIncrease}) => {
     const dispatch = useDispatch()
 
@@ -28,7 +28,7 @@ const CartItem = ({ product, index, handleRemove , handleIncrease}) => {
                     </dl>
                     <button onClick={() => handleRemove(index)}>Remove from cart</button>
                     <button onClick={() => dispatch(quantityIncrease(product.id))}>+</button>
-                    <button >-</button>
+                    <button onClick={() => dispatch(quantityDecrease(product.id))}>-</button>
                 </div>
             </div>
         {/*    ładniejszy obiekt w sklepie  */}

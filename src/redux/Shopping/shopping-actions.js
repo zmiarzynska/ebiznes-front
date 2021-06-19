@@ -25,3 +25,13 @@ export const quantityIncrease = (id) => {
         })
     }
 }
+
+export const quantityDecrease = (id) => {
+    return (dispatch) => {
+        dispatch({
+
+            type:actionTypes.QUANTITY_DECREASE,
+            payload: id
+        })
+    }
+}
