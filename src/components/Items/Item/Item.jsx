@@ -22,7 +22,7 @@ const Item = ({item}) => {
                 <div className="product-body">
                     {item.description}
                     <br/>
-                    {item.price}
+                    {item.price} PLN
                     <p></p>
                 </div>
                 <IconButton aria-label="Add to Cart"

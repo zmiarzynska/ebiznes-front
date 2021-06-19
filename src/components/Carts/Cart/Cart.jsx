@@ -17,14 +17,6 @@ const reducer = (state,action) => {
             action.item.quantity = 1;
             console.log(action.item);
             return [...state,action.item];
-          /*  if(arrWithId !== undefined){
-                action.item.quantity += 1;
-                return array
-            }
-            else {
-                action.item.quantity = 1;
-                return [...state,action.item];
-            } */
 
         case "REMOVE":
             const newArr = [...state];

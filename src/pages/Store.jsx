@@ -21,7 +21,7 @@ const CartItem = ({ product, index, handleRemove , handleIncrease}) => {
                         <dt className="clip">Price</dt>
                             {product.price.toLocaleString("en", {
                                 style: "currency",
-                                currency: "USD"
+                                currency: "PLN"
                             })}
                         </dd>
                         <p>Quantity: {product.quantity}</p>
@@ -31,7 +31,6 @@ const CartItem = ({ product, index, handleRemove , handleIncrease}) => {
                     <button onClick={() => dispatch(quantityDecrease(product.id))}>-</button>
                 </div>
             </div>
-        {/*    ładniejszy obiekt w sklepie  */}
             <li className='CartItem__item'>
                 <img src={product.image} alt='' />
                 <div>

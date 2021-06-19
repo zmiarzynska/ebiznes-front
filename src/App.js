@@ -1,7 +1,7 @@
 import './App.css';
 import Items from "./components/Items/Items";
 
-import Cart from "./pages/Store"
+import Store from "./pages/Store"
 import React from "react";
 import Header from "./components/Header";
 
@@ -13,24 +13,25 @@ function App() {
         <Router>
         <>
             <Header />
-            <div className="container">
+
+            {/*<div className="container">*/}
 
             <Switch>
                 <Route path="/cart">
 
-                    <div className="products">
+                    <div className="products-cart">
                         <div className="cart-container">
-                        <Cart />
+                        <Store />
                         </div>
                     </div>
                 </Route>
                 <Route path="/" >
-
+                    <div className="products-store">
                         <Items/>
-
+                    </div>
                 </Route>
             </Switch>
-            </div>
+            {/*</div>*/}
         </>
         </Router>
     );
