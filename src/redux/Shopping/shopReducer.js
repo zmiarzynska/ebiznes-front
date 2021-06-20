@@ -78,7 +78,9 @@ const shopReducer = (state = INITIAL_STATE, action={}) => {
             }
         case actionTypes.QUANTITY_DECREASE:
             const item2 = state.cart.filter(x=> x.id === action.payload)
-            item2[0].quantity -=1
+            if(item2[0].quantity > 0){
+                item2[0].quantity -=1
+            }
             let quantityUpSubtract = 0;
             state.cart.forEach(
                 (product) =>
@@ -89,6 +91,25 @@ const shopReducer = (state = INITIAL_STATE, action={}) => {
                 loading: false,
                 cart: state.cart,
                 totalPrice: quantityUpSubtract
+            }
+        case actionTypes.REMOVE_FROM_CART:
+            const newArr = state.cart;
+            console.log(action);
+            newArr.splice(action.index, 1);
+            return newArr;
+            let quantityRemove = 0;
+
+
+
+            state.cart.forEach(
+                (product) =>
+                    ( quantityRemove += product.price * product.quantity)
+            );
+            return {
+                ...state,
+                loading: false,
+                cart: state.cart,
+                totalPrice: quantityRemove
             }
         default:
             return state

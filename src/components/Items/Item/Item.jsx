@@ -5,9 +5,15 @@ import {addToCart} from "../../../redux/Shopping/shopping-actions"
 
 import "./Product.css"
 import {useDispatch} from "react-redux";
+import Button from '@material-ui/core/Button';
 
 const Item = ({item}) => {
     const dispatch = useDispatch();
+
+    const readMore = () => {
+        alert(item.name + '\n' +
+        item.description + '\n')
+    };
 
     return (
         <div className="product-container">
@@ -24,7 +30,10 @@ const Item = ({item}) => {
                     {item.price} PLN
 
                 </div>
-                Więcej ..  {/*Dac tu alert*/}
+                {/*Więcej ..  /!*Dac tu alert*!/*/}
+                <Button onClick={readMore}>
+                    Read more..
+                </Button>
                 <IconButton aria-label="Add to Cart"
                             onClick={() => {
                                 dispatch(addToCart(item))
