@@ -1,9 +1,7 @@
 import React, {useEffect} from "react";
-import { useCart, useDispatchCart } from "../components/Carts/Cart/Cart";
 import formatCurrency from "format-currency";
 import { useDispatch, useSelector } from "react-redux";
 import {loadCart, quantityIncrease, quantityDecrease} from "../redux/Shopping/shopping-actions";
-import {Grid} from '@material-ui/core';
 
 const CartItem = ({ product, index, handleRemove , handleIncrease}) => {
     const dispatch = useDispatch()
@@ -11,8 +9,8 @@ const CartItem = ({ product, index, handleRemove , handleIncrease}) => {
     let opts = { format: "%s%v", symbol: "PLN" };
 
     return (
-        <article>
-            <div>
+        <>
+            <div className="whole_product">
 
                 <div className = "products-container">
                     <div>
@@ -29,12 +27,15 @@ const CartItem = ({ product, index, handleRemove , handleIncrease}) => {
                         </dd>
                         <p>Quantity: {product.quantity}</p>
                     </dl>
-                    <button onClick={() => handleRemove(index)}>Remove from cart</button>
-                    <button onClick={() => dispatch(quantityIncrease(product.id))}>+</button>
-                    <button onClick={() => dispatch(quantityDecrease(product.id))}>-</button>
+
                 </div>
                     <div className="image-container">
                         <img src={product.image} alt='' />
+                    </div>
+                    <div className="buttons">
+                        <button onClick={() => handleRemove(index)}>Remove from cart</button>
+                        <button onClick={() => dispatch(quantityIncrease(product.id))}>+</button>
+                        <button onClick={() => dispatch(quantityDecrease(product.id))}>-</button>
                     </div>
                 </div>
             </div>
@@ -44,7 +45,7 @@ const CartItem = ({ product, index, handleRemove , handleIncrease}) => {
                 </div>
 
             </li>
-        </article>
+        </>
     );
 };
 

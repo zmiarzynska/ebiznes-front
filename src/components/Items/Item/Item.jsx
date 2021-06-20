@@ -24,7 +24,7 @@ const Item = ({item}) => {
                     {item.price} PLN
 
                 </div>
-                Dodaj do koszyka
+                Więcej ..  {/*Dac tu alert*/}
                 <IconButton aria-label="Add to Cart"
                             onClick={() => {
                                 dispatch(addToCart(item))
