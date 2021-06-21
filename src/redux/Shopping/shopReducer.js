@@ -86,6 +86,10 @@ const shopReducer = (state = INITIAL_STATE, action={}) => {
                 (product) =>
                     (quantityUpSubtract += product.price * product.quantity)
             );
+
+            if (item2[0].quantity === 0){
+            state.cart.splice(x=> x.id === action.index, 1);
+             }
             return {
                 ...state,
                 loading: false,
@@ -93,13 +97,9 @@ const shopReducer = (state = INITIAL_STATE, action={}) => {
                 totalPrice: quantityUpSubtract
             }
         case actionTypes.REMOVE_FROM_CART:
-            const newArr = state.cart;
             console.log(action);
-            newArr.splice(action.index, 1);
-            return newArr;
+            state.cart.splice(action.index, 1);
             let quantityRemove = 0;
-
-
 
             state.cart.forEach(
                 (product) =>

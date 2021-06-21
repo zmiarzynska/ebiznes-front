@@ -19,7 +19,6 @@ const Items = () => {
     if(items){
         return (
             <main>
-
                 <h1>Products</h1>
                 <Grid container justify="center" spacing={10}>
                     {items.map((_item) => (

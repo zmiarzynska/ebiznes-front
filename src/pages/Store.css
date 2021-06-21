@@ -7,15 +7,28 @@
 
 .products-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .whole_product{
     display: flex;
-    justify-content: space-between;
 }
 
 .buttons{
     display: flex;
     min-width: 300px;
+}
+
+.purchase-form{
+    display: flex;
+    min-height: 600px;
+}
+
+.shopping-cart{
+    display: flex;
+    justify-content: space-between;
+}
+
+.main {
+    display: flex;
 }

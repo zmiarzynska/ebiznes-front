@@ -6,8 +6,12 @@ import {addToCart} from "../../../redux/Shopping/shopping-actions"
 import "./Product.css"
 import {useDispatch} from "react-redux";
 import Button from '@material-ui/core/Button';
-
+import Dialog from "@material-ui/core/Dialog";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import {Elements} from "@stripe/react-stripe-js";
+import CheckoutForm from "../../../pages/Purchase";
 const Item = ({item}) => {
+
     const dispatch = useDispatch();
 
     const readMore = () => {
@@ -15,6 +19,15 @@ const Item = ({item}) => {
         item.description + '\n')
     };
 
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
     return (
         <div className="product-container">
             <div className="image-container">
@@ -30,10 +43,14 @@ const Item = ({item}) => {
                     {item.price} PLN
 
                 </div>
-                {/*Więcej ..  /!*Dac tu alert*!/*/}
-                <Button onClick={readMore}>
-                    Read more..
-                </Button>
+                <Button onClick={handleClickOpen} className="signUpBtn" > Read more... </Button>
+                <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+                    <DialogTitle id="form-dialog-title">More info </DialogTitle>
+                    {item.name}
+                    <img src={item.image} style={{paddingBottom: "10px"}} alt=""/>
+                    {item.description}
+
+                </Dialog>
                 <IconButton aria-label="Add to Cart"
                             onClick={() => {
                                 dispatch(addToCart(item))

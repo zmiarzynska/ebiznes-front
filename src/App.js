@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 
 function App() {
+
     return (
         <Router>
         <>
@@ -28,7 +29,10 @@ function App() {
                 <Route path="/" >
                     <div className="products-store">
                         <Items/>
+
+
                     </div>
+
                 </Route>
             </Switch>
             {/*</div>*/}

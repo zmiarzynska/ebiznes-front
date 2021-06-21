@@ -2,13 +2,15 @@ import React,{useEffect} from "react";
 import { Link } from "react-router-dom";
 
 import Cookies from 'js-cookie';
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import Menu from '@material-ui/core/Menu';
 import Button from '@material-ui/core/Button';
 import MenuItem from '@material-ui/core/MenuItem';
+import {loadCart} from "../redux/Shopping/shopping-actions";
 
 const Header = () => {
     const shop = useSelector((state) => state);
+    const dispatch = useDispatch();
     useEffect( () =>
     {
         const user = Cookies.get('user')
@@ -16,7 +18,8 @@ const Header = () => {
         if (user != null) {
            console.log(user)
         }
-    }, {});
+        dispatch(loadCart);
+    }, []);
 
     const [anchorEl, setAnchorEl] = React.useState(null);
 
