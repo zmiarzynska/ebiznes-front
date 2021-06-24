@@ -10,6 +10,7 @@ import {loadStripe} from '@stripe/stripe-js';
 import {Field, Form, Formik, FormikHelpers} from 'formik';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
+import {DialogContent} from "@material-ui/core";
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 const CartItem = ({ product, index}) => {
     const dispatch = useDispatch()
@@ -92,14 +93,17 @@ export default function Store() {
 
 
             <Button onClick={handleClickOpen} className="signUpBtn" > BUY </Button>
-            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" contentStyle={{minHeight: "1000px"}}>
+            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title" fullWidth maxWidth="sm" fullHeight maxHeight="md" >
                 <DialogTitle id="form-dialog-title">Total price - {shop.shop.totalPrice.toLocaleString("en", {
                     style: "currency",
                     currency: "PLN"
                 })}</DialogTitle>
-                <Elements stripe={stripePromise}>
-                    <CheckoutForm  />
-                </Elements>
+                <DialogContent style={{display: "flex", flexDirection:"column", alignItems:"stretch", justifyContent: "space-evenly",height:'200px'}}>
+                    <Elements stripe={stripePromise}>
+                        <CheckoutForm  />
+                    </Elements>
+                </DialogContent>
+
                 </Dialog>
 
             <div className="purchase-form">
