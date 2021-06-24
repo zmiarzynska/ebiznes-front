@@ -69,8 +69,8 @@ const Header = () => {
                             {/*<MenuItem onClick={()=> window.location.assign("http://localhost:9000" + "/authenticate/google")} > Log in with google</MenuItem>*/}
                             {/*<MenuItem onClick={()=> window.location.assign("http://localhost:9000" + "/authenticate/github")}> Log in with gitHub</MenuItem>*/}
 
-                            <MenuItem onClick={()=> window.location.assign("https://ebiznes-frontend-zm.azurewebsites.net" + "/authenticate/google")} > Log in with google</MenuItem>
-                            <MenuItem onClick={()=> window.location.assign("https://ebiznes-frontend-zm.azurewebsites.net" + "/authenticate/github")}> Log in with gitHub</MenuItem>
+                            <MenuItem onClick={()=> window.location.assign("https://ebiznes-backend-zm.azurewebsites.net" + "/authenticate/google")} > Log in with google</MenuItem>
+                            <MenuItem onClick={()=> window.location.assign("https://ebiznes-backend-zm.azurewebsites.net" + "/authenticate/github")}> Log in with gitHub</MenuItem>
 
                         </Menu>
 
