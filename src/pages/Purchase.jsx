@@ -8,7 +8,6 @@ const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
 
-    const shop = useSelector((state) => state);
     const dispatch = useDispatch()
     useEffect(()=>{
         dispatch(loadCart())
