@@ -5,7 +5,7 @@ import Item from './Item/Item'
 
 
 const Items = () => {
-    const url = 'http://localhost:9000/items';
+    const url = 'https://ebiznes-backend-zm.azurewebsites.net/items';
     const [items, setItem] = useState([])
 
     useEffect(() => {
