@@ -1,8 +1,18 @@
 import {CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
+import {loadCart, buy} from "../redux/Shopping/shopping-actions";
+import Button from "@material-ui/core/Button";
+import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
 
 const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
+
+    const shop = useSelector((state) => state);
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        dispatch(loadCart())
+    },[])
 
     const handleSubmit = async (event) => {
         // Block native form submission.
@@ -35,9 +45,10 @@ const CheckoutForm = () => {
     return (
         <form onSubmit={handleSubmit}>
             <CardElement />
-            <button type="submit" disabled={!stripe}>
+            <button type="submit" disabled={!stripe} >
                 Pay
             </button>
+            <Button onClick={() => dispatch(buy())}>BUY</Button>
         </form>
     );
 };

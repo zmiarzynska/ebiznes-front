@@ -8,16 +8,10 @@ import {useDispatch} from "react-redux";
 import Button from '@material-ui/core/Button';
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import {Elements} from "@stripe/react-stripe-js";
-import CheckoutForm from "../../../pages/Purchase";
+
 const Item = ({item}) => {
 
     const dispatch = useDispatch();
-
-    const readMore = () => {
-        alert(item.name + '\n' +
-        item.description + '\n')
-    };
 
     const [open, setOpen] = React.useState(false);
 

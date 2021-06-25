@@ -45,3 +45,13 @@ export const removeFromCart = (id) => {
         })
     }
 }
+
+
+export const buy = () => {
+    return (dispatch) => {
+        dispatch({
+
+            type:actionTypes.BUY
+        })
+    }
+}

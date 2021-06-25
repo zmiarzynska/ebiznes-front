@@ -1,21 +1,16 @@
 import React, {useEffect} from "react";
-import formatCurrency from "format-currency";
 import { useDispatch, useSelector } from "react-redux";
 import {loadCart, quantityIncrease, quantityDecrease, removeFromCart} from "../redux/Shopping/shopping-actions";
 import Button from "@material-ui/core/Button";
 import {Elements} from "@stripe/react-stripe-js";
 import CheckoutForm from "./Purchase";
 import {loadStripe} from '@stripe/stripe-js';
-//import CheckoutForm from "./pages/Purchase";
-import {Field, Form, Formik, FormikHelpers} from 'formik';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 import {DialogContent} from "@material-ui/core";
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 const CartItem = ({ product, index}) => {
     const dispatch = useDispatch()
-
-    let opts = { format: "%s%v", symbol: "PLN" };
 
     return (
         <>

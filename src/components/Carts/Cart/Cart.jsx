@@ -1,5 +1,5 @@
 import React, {useReducer, useContext, createContext } from 'react';
-import "./Cart.css"
+
 
 
 const CartStateContext = createContext()
@@ -27,11 +27,9 @@ const reducer = (state,action) => {
 
             const all_items = [...state];
             const temp = all_items.find(product => product.id === action.product.id)
-            //temp.quantity =temp.quantity + 1;
-            if(temp.quantity == 1){
                 temp.quantity += 1;
-            }
-            else {temp.quantity+= 0.5;}
+
+
 
             all_items.splice(all_items.indexOf(action.product.id ),1,temp);
             return all_items;

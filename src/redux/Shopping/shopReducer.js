@@ -49,10 +49,6 @@ const shopReducer = (state = INITIAL_STATE, action={}) => {
                 (product) =>
                     (quantityUpSum += product.price * product.quantity)
             );
-            /*quantityUpSum = new Intl.NumberFormat("pl-PL", {
-                style: "currency",
-                currency: "PLN",
-            }).format(quantityUpSum);*/
 
             return {
                 ...state,
@@ -111,6 +107,18 @@ const shopReducer = (state = INITIAL_STATE, action={}) => {
                 cart: state.cart,
                 totalPrice: quantityRemove
             }
+
+        case actionTypes.BUY:
+            console.log(action);
+            state.cart.splice(0, state.cart.length);
+            let total = 0;
+            return {
+                ...state,
+                loading: false,
+                cart: state.cart,
+                totalPrice: total
+            }
+
         default:
             return state
     }
